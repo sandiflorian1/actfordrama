@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Warm paper / vintage theatrical palette */
+  --background: #f4ecdd;
+  --foreground: #2e2418;
+  --card: #faf5e9;
+  --card-foreground: #2e2418;
+  --popover: #faf5e9;
+  --popover-foreground: #2e2418;
+  --primary: #b0572e;
+  --primary-foreground: #faf5e9;
+  --secondary: #ede2cc;
+  --secondary-foreground: #46351f;
+  --muted: #ece1ca;
+  --muted-foreground: #7b6a4f;
+  --accent: #e9dcbf;
+  --accent-foreground: #46351f;
+  --destructive: #97311b;
+  --destructive-foreground: #faf5e9;
+  --border: #d6c7a8;
+  --input: #d6c7a8;
+  --ring: #b0572e;
+}
+
+.dark {
+  --background: #211a12;
+  --foreground: #f0e7d3;
+  --card: #2a2116;
+  --card-foreground: #f0e7d3;
+  --popover: #2a2116;
+  --popover-foreground: #f0e7d3;
+  --primary: #cd7648;
+  --primary-foreground: #211a12;
+  --secondary: #3a2e1e;
+  --secondary-foreground: #f0e7d3;
+  --muted: #3a2e1e;
+  --muted-foreground: #a89474;
+  --accent: #453723;
+  --accent-foreground: #f0e7d3;
+  --destructive: #c0543a;
+  --destructive-foreground: #f0e7d3;
+  --border: #453723;
+  --input: #453723;
+  --ring: #cd7648;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
