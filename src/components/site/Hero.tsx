@@ -41,7 +41,7 @@ export function Hero({ settings }: { settings: SiteSettings }) {
           </p>
         </Reveal>
 
-        <h1 className="mt-6 font-serif text-[18vw] leading-[0.9] tracking-tight uppercase sm:text-[13vw] lg:text-[9rem]">
+        <h1 className="mt-6 font-hand text-[20vw] leading-[0.9] font-bold tracking-tight uppercase sm:text-[15vw] lg:text-[11rem]">
           {lines.map((line, i) => (
             <span key={i} className="block overflow-hidden">
               <span

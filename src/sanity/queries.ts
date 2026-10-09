@@ -45,6 +45,8 @@ export interface TeamMember {
   _id: string
   name: string
   role?: string
+  bio?: string
+  specialties?: string[]
   photo?: unknown
 }
 

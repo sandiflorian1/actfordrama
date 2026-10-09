@@ -34,11 +34,11 @@ export function ClassesSection({ classes }: { classes: ClassGroup[] }) {
                   <span className="ml-2 text-lg text-muted-foreground">· {c.ageRange} ani</span>
                 )}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground md:col-span-5">
+              <p className="text-sm leading-relaxed text-muted-foreground md:col-span-4">
                 {c.description}
               </p>
-              <div className="flex items-center justify-between gap-2 text-sm font-medium md:col-span-2 md:justify-end">
-                <span className="whitespace-nowrap">{c.schedule}</span>
+              <div className="flex items-center gap-2 text-sm font-medium md:col-span-3 md:justify-end">
+                <span className="md:text-right">{c.schedule}</span>
                 <ArrowUpRight className="size-4 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
             </a>

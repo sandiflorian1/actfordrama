@@ -39,11 +39,13 @@ export function Navbar({ siteName = 'ACT IV DRAMA STUDIO', logo, links = [] }: N
     >
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
         <a href="#top" className="flex items-center gap-3">
-          <img
-            src={logoUrl}
-            alt={siteName}
-            className="size-14 rounded-full object-cover object-[center_88%]"
-          />
+          <span className="flex size-14 items-center justify-center rounded-full bg-[#f4ecdd] p-1 shadow-sm">
+            <img
+              src={logoUrl}
+              alt={siteName}
+              className="size-full rounded-full object-cover object-[center_88%]"
+            />
+          </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

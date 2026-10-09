@@ -25,7 +25,7 @@ export const fallbackContent: SiteContent = {
     instagram: '@activstudio_',
     facebook: 'Act IV Studio',
     location: 'Bulevardul Ferdinand I 126A, București',
-    copyright: '© 2026 ACT IV DRAMA STUDIO — Toate drepturile rezervate',
+    copyright: '© 2026 ACT IV DRAMA STUDIO',
   },
   classes: [
     {
@@ -79,12 +79,16 @@ export const fallbackContent: SiteContent = {
       _id: 'iasmina',
       name: 'Iasmina Crețoi',
       role: 'Actriță & Trainer de teatru',
-      photo: '/team/iasmina.jpg',
+      bio: 'Actriță și co-fondatoare a studioului. A călcat pe scenele marilor teatre bucureștene și a descoperit că bucuria cea mai mare e să vezi cum oamenii îndrăznesc. La orele ei nu există greșeli — doar propuneri pe care le joci mai departe. Teatrul, spune ea, nu te învață să fii altcineva, ci să fii mai mult tu însuți.',
+      specialties: ['Actorie', 'Voce & dicție', 'Improvizație'],
+      photo: '/team/iasmina.png',
     },
     {
       _id: 'victoras',
       name: 'Victoraș Matei',
       role: 'Actor & Trainer de teatru',
+      bio: 'Actor și co-fondator al studioului. Transformă scena în teren de joacă — între improvizație, exerciții și mult umor, elevii lui uită că „învață" și descoperă că pot susține o scenă întreagă. E convins că oricine poate urca pe scenă; trebuie doar să îndrăznească primul pas.',
+      specialties: ['Improvizație', 'Mișcare scenică', 'Actorie'],
       photo: '/team/victoras.png',
     },
   ],
