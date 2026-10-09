@@ -7,6 +7,7 @@ export interface NavLink {
 
 export interface SiteSettings {
   siteName?: string
+  logo?: unknown
   navLinks?: NavLink[]
   heroTitle?: string
   tagline?: string
@@ -17,8 +18,10 @@ export interface SiteSettings {
   ctaSecondaryLabel?: string
   ctaSecondaryHref?: string
   enrollmentNote?: string
+  phone?: string
   email?: string
   instagram?: string
+  facebook?: string
   location?: string
   copyright?: string
 }
@@ -38,6 +41,13 @@ export interface Feature {
   icon?: string
 }
 
+export interface TeamMember {
+  _id: string
+  name: string
+  role?: string
+  photo?: unknown
+}
+
 export interface Performance {
   _id: string
   title: string
@@ -51,11 +61,13 @@ export interface SiteContent {
   classes: ClassGroup[]
   features: Feature[]
   performances: Performance[]
+  team: TeamMember[]
 }
 
 export const siteContentQuery = groq`{
   "settings": *[_type == "siteSettings"][0],
   "classes": *[_type == "classGroup"] | order(order asc),
   "features": *[_type == "feature"] | order(order asc),
-  "performances": *[_type == "performance"] | order(date asc)
+  "performances": *[_type == "performance"] | order(date asc),
+  "team": *[_type == "teamMember"] | order(order asc)
 }`

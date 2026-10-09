@@ -15,7 +15,7 @@ export default function App() {
             <Suspense
               fallback={
                 <div className="flex min-h-screen items-center justify-center text-sm text-muted-foreground">
-                  Loading studio…
+                  Se încarcă studio…
                 </div>
               }
             >

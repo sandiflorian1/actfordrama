@@ -5,6 +5,7 @@ import { siteSettings } from './schemas/siteSettings'
 import { classGroup } from './schemas/classGroup'
 import { feature } from './schemas/feature'
 import { performance } from './schemas/performance'
+import { teamMember } from './schemas/teamMember'
 
 import { projectId, dataset } from './env'
 
@@ -28,11 +29,12 @@ export default defineConfig({
             S.documentTypeListItem('classGroup').title('Class Groups'),
             S.documentTypeListItem('feature').title('Features'),
             S.documentTypeListItem('performance').title('Performances'),
+            S.documentTypeListItem('teamMember').title('Team'),
           ]),
     }),
     visionTool(),
   ],
   schema: {
-    types: [siteSettings, classGroup, feature, performance],
+    types: [siteSettings, classGroup, feature, performance, teamMember],
   },
 })

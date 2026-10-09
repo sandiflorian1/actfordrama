@@ -20,6 +20,7 @@ export function useSiteContent() {
           classes: data.classes?.length ? data.classes : fallbackContent.classes,
           features: data.features?.length ? data.features : fallbackContent.features,
           performances: data.performances ?? [],
+          team: data.team?.length ? data.team : fallbackContent.team,
         })
       })
       .catch((err) => console.error('Sanity fetch failed, using fallback content:', err))
