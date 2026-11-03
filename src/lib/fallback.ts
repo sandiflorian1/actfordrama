@@ -31,7 +31,6 @@ export const fallbackContent: SiteContent = {
     phone: '0785 088 595 / 0763 618 499',
     email: 'activstudio.office@gmail.com',
     instagram: '@activstudio_',
-    facebook: 'Act IV Studio',
     location: 'Bulevardul Ferdinand I 126A, București',
     copyright: '© 2026 ACT IV DRAMA STUDIO',
   },

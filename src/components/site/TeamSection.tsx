@@ -1,4 +1,5 @@
 import { Drama } from 'lucide-react'
+import type { CSSProperties } from 'react'
 import { Reveal } from './Reveal'
 import { urlFor } from '@/sanity/image'
 import { cn } from '@/lib/utils'
@@ -50,20 +51,31 @@ function MemberBio({ m }: { m: TeamMember }) {
 function MemberPhoto({ m, flip }: { m: TeamMember; flip: boolean }) {
   const src = photoUrl(m.photo)
   return (
-    <div className={cn('mx-auto w-full max-w-sm', flip ? 'sm:-rotate-2' : 'sm:rotate-2')}>
-      <div className="group overflow-hidden rounded-3xl bg-secondary shadow-lg transition-shadow duration-500 hover:shadow-2xl">
-        {src ? (
-          <img
-            src={src}
-            alt={m.name}
-            className="aspect-4/5 w-full object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-          />
-        ) : (
-          <div className="flex aspect-4/5 w-full items-center justify-center">
-            <Drama className="size-10 text-primary/40" strokeWidth={1.25} />
-          </div>
-        )}
-      </div>
+    <div
+      className={cn(
+        'mx-auto w-full max-w-sm transition-[rotate,translate] duration-500 ease-out hover:-translate-y-2 sm:hover:rotate-0',
+        flip ? 'sm:-rotate-2' : 'sm:rotate-2',
+      )}
+    >
+      <Reveal
+        variant="polaroid"
+        delay={250}
+        style={{ '--tilt': flip ? '-10deg' : '10deg' } as CSSProperties}
+      >
+        <div className="group relative">
+          {src ? (
+            <img
+              src={src}
+              alt={m.name}
+              className="relative aspect-4/5 w-full object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+            />
+          ) : (
+            <div className="flex aspect-4/5 w-full items-center justify-center">
+              <Drama className="size-10 text-primary/40" strokeWidth={1.25} />
+            </div>
+          )}
+        </div>
+      </Reveal>
     </div>
   )
 }

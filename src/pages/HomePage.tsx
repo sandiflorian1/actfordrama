@@ -4,7 +4,6 @@ import { Hero } from '@/components/site/Hero'
 import { Marquee } from '@/components/site/Marquee'
 import { AboutSection } from '@/components/site/AboutSection'
 import { ClassesSection } from '@/components/site/ClassesSection'
-import { WhySection } from '@/components/site/WhySection'
 import { TeamSection } from '@/components/site/TeamSection'
 import { PerformancesSection } from '@/components/site/PerformancesSection'
 import { Footer } from '@/components/site/Footer'
@@ -27,7 +26,6 @@ export default function HomePage() {
           modules={settings.programModules}
           summerModules={settings.summerModules}
         />
-        <WhySection features={content.features} />
         <TeamSection members={content.team} />
         <PerformancesSection performances={content.performances} />
       </main>

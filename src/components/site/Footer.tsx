@@ -13,14 +13,6 @@ function InstagramIcon({ className }: { className?: string }) {
   )
 }
 
-function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M15 3h-2.5a3.5 3.5 0 0 0-3.5 3.5V9H6.5v3.5H9V21h3.5v-8.5h3l.5-3.5h-3.5V6.8c0-.7.5-1.3 1.2-1.3H15.8V3Z" />
-    </svg>
-  )
-}
-
 type IconProps = { className?: string }
 
 interface ContactItem {
@@ -32,6 +24,7 @@ interface ContactItem {
 
 export function Footer({ settings }: { settings: SiteSettings }) {
   const igHandle = settings.instagram?.replace('@', '')
+  const mapQuery = settings.location && encodeURIComponent(settings.location)
 
   const contacts: ContactItem[] = [
     { label: 'Telefon', icon: (p: IconProps) => <Phone {...p} />, value: settings.phone },
@@ -41,17 +34,17 @@ export function Footer({ settings }: { settings: SiteSettings }) {
       value: settings.email,
       href: settings.email && `mailto:${settings.email}`,
     },
-    { label: 'Adresă', icon: (p: IconProps) => <MapPin {...p} />, value: settings.location },
+    {
+      label: 'Adresă',
+      icon: (p: IconProps) => <MapPin {...p} />,
+      value: settings.location,
+      href: mapQuery && `https://www.google.com/maps/search/?api=1&query=${mapQuery}`,
+    },
     {
       label: 'Instagram',
       icon: (p: IconProps) => <InstagramIcon {...p} />,
       value: settings.instagram,
       href: igHandle && `https://instagram.com/${igHandle}`,
-    },
-    {
-      label: 'Facebook',
-      icon: (p: IconProps) => <FacebookIcon {...p} />,
-      value: settings.facebook,
     },
   ].filter((c) => c.value)
 
@@ -82,7 +75,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
           </Reveal>
         )}
 
-        <div className="mt-16 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-16 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2 lg:flex lg:justify-between">
           {contacts.map(({ label, icon: Icon, value, href }, i) => (
             <Reveal key={label} delay={i * 80}>
               <p className="flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] text-[#f4ecdd]/40 uppercase">

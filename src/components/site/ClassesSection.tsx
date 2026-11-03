@@ -1,4 +1,4 @@
-import { ArrowUpRight, Sun } from 'lucide-react'
+import { ArrowUpRight, Star, Sun } from 'lucide-react'
 import { Reveal } from './Reveal'
 import type { ClassGroup, ProgramModule } from '@/sanity/queries'
 
@@ -28,12 +28,12 @@ export function ClassesSection({
 
       <div className="mt-12 border-t border-foreground/15">
         {classes.map((c, i) => (
-          <Reveal key={c._id} delay={i * 100}>
+          <Reveal key={c._id} variant="ticket" delay={i * 140}>
             <a
               href="#contact"
               className="group grid items-baseline gap-3 border-b border-foreground/15 px-2 py-8 transition-colors duration-300 hover:bg-accent/50 md:grid-cols-12 md:px-4"
             >
-              <span className="font-hand text-2xl text-primary md:col-span-1">
+              <span className="inline-block origin-bottom-left font-hand text-2xl text-primary transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110 md:col-span-1">
                 0{i + 1}
               </span>
               <h3
@@ -67,18 +67,37 @@ export function ClassesSection({
                   Structura
                 </h3>
               </Reveal>
-              <ol className="mt-8 border-t border-foreground/15">
-                {modules.map((m, i) => (
-                  <Reveal key={i} delay={i * 100}>
-                    <li className="grid gap-1 border-b border-foreground/15 px-2 py-5 sm:grid-cols-12 sm:items-baseline sm:gap-3 md:px-4">
-                      <span className="text-xs font-semibold tracking-[0.2em] text-primary uppercase sm:col-span-5 sm:whitespace-nowrap">
-                        {[m.level, m.module].filter(Boolean).join(' · ')}
-                      </span>
-                      <span className="font-serif text-xl sm:col-span-7">{m.title}</span>
-                    </li>
-                  </Reveal>
-                ))}
-              </ol>
+              <Reveal variant="stage">
+                <ol className="relative mt-8 border-t border-foreground/15">
+                  <span
+                    aria-hidden="true"
+                    className="module-line absolute top-0 bottom-0 left-4 w-px bg-primary/40 md:left-5"
+                  />
+                  {modules.map((m, i) => (
+                    <Reveal key={i} delay={i * 100}>
+                      <li className="relative grid gap-1 border-b border-foreground/15 py-5 pr-2 pl-10 sm:grid-cols-12 sm:items-baseline sm:gap-3 md:pr-4 md:pl-12">
+                        {i === modules.length - 1 ? (
+                          <Star
+                            aria-hidden="true"
+                            className="module-dot absolute top-1/2 left-4 size-4 -translate-x-1/2 -translate-y-1/2 fill-primary bg-background text-primary md:left-5"
+                            style={{ transitionDelay: `${300 + i * 300}ms` }}
+                          />
+                        ) : (
+                          <span
+                            aria-hidden="true"
+                            className="module-dot absolute top-1/2 left-4 size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary ring-4 ring-background md:left-5"
+                            style={{ transitionDelay: `${300 + i * 300}ms` }}
+                          />
+                        )}
+                        <span className="text-xs font-semibold tracking-[0.2em] text-primary uppercase sm:col-span-5 sm:whitespace-nowrap">
+                          {[m.level, m.module].filter(Boolean).join(' · ')}
+                        </span>
+                        <span className="font-serif text-xl sm:col-span-7">{m.title}</span>
+                      </li>
+                    </Reveal>
+                  ))}
+                </ol>
+              </Reveal>
             </div>
           )}
 
