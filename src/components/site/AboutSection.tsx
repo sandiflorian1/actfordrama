@@ -14,11 +14,11 @@ export function AboutSection({ settings }: { settings: SiteSettings }) {
 
         <div className="md:col-span-6">
           <Reveal delay={100}>
-            <p className="font-serif text-3xl leading-snug md:text-4xl">{settings.tagline}.</p>
+            <p className="font-serif text-3xl leading-snug md:text-4xl">{settings.aboutTitle || settings.tagline}</p>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base">
-              {settings.heroDescription}
+              {settings.aboutDescription || settings.heroDescription}
             </p>
           </Reveal>
         </div>

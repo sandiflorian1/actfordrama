@@ -35,7 +35,15 @@ function MemberInfo({ m }: { m: TeamMember }) {
 function MemberBio({ m }: { m: TeamMember }) {
   if (!m.bio) return null
   return (
-    <p className="max-w-md text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
+    <div className="max-w-md space-y-3 text-sm leading-relaxed text-muted-foreground">
+      {m.bio
+        .split(/\n\s*\n/)
+        .map((p) => p.trim())
+        .filter(Boolean)
+        .map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+    </div>
   )
 }
 

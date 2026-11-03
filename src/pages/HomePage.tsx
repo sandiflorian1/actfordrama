@@ -22,7 +22,11 @@ export default function HomePage() {
           items={['Teatru', 'Improvizație', 'Mișcare', 'Voce', 'Povești', 'Comunitate']}
         />
         <AboutSection settings={settings} />
-        <ClassesSection classes={content.classes} />
+        <ClassesSection
+          classes={content.classes}
+          modules={settings.programModules}
+          summerModules={settings.summerModules}
+        />
         <WhySection features={content.features} />
         <TeamSection members={content.team} />
         <PerformancesSection performances={content.performances} />

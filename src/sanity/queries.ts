@@ -5,6 +5,12 @@ export interface NavLink {
   href: string
 }
 
+export interface ProgramModule {
+  level?: string
+  module?: string
+  title?: string
+}
+
 export interface SiteSettings {
   siteName?: string
   logo?: unknown
@@ -12,11 +18,15 @@ export interface SiteSettings {
   heroTitle?: string
   tagline?: string
   heroDescription?: string
+  aboutTitle?: string
+  aboutDescription?: string
   heroImage?: unknown
   ctaPrimaryLabel?: string
   ctaPrimaryHref?: string
   ctaSecondaryLabel?: string
   ctaSecondaryHref?: string
+  programModules?: ProgramModule[]
+  summerModules?: string[]
   enrollmentNote?: string
   phone?: string
   email?: string

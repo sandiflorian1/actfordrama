@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Menu } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { urlFor } from '@/sanity/image'
 import { cn } from '@/lib/utils'
 import type { NavLink } from '@/sanity/queries'
@@ -14,7 +11,6 @@ interface NavbarProps {
 }
 
 export function Navbar({ siteName = 'ACT IV DRAMA STUDIO', logo, links = [] }: NavbarProps) {
-  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -59,33 +55,6 @@ export function Navbar({ siteName = 'ACT IV DRAMA STUDIO', logo, links = [] }: N
             </a>
           ))}
         </nav>
-
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Deschide meniul"
-              className="text-[#f4ecdd] hover:bg-white/10 hover:text-[#f4ecdd]"
-            >
-              <Menu className="size-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="border-white/10 bg-[#17110c] text-[#f4ecdd]">
-            <nav className="mt-10 flex flex-col gap-6">
-              {links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="font-serif text-2xl"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
       </div>
     </header>
   )

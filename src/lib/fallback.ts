@@ -5,20 +5,28 @@ export const fallbackContent: SiteContent = {
     siteName: 'ACT IV DRAMA STUDIO',
     navLinks: [
       { label: 'DESPRE', href: '#about' },
-      { label: 'CLASE', href: '#classes' },
       { label: 'ECHIPA', href: '#echipa' },
       { label: 'PROGRAM', href: '#schedule' },
-      { label: 'SPECTACOLE', href: '#performances' },
       { label: 'CONTACT', href: '#contact' },
     ],
     heroTitle: 'ACT IV\nDRAMA\nSTUDIO',
     tagline: 'Unde poveștile prind viață',
     heroDescription:
-      'Un spațiu creativ pentru actorii de toate vârstele: explorăm, învățăm și urcăm pe scenă împreună. Construiește-ți încrederea, creativitatea și comunitatea prin arta teatrului.',
+      'Un spațiu creativ dedicat copiilor și adolescenților, unde prindem curaj să fim noi înșine și descoperim, prin joc și creativitate, cât de departe ne poate duce imaginația.',
+    aboutTitle: 'Un spațiu construit din vise și tehnici teatrale',
+    aboutDescription:
+      'ACT IV Drama Studio este un spațiu creativ dedicat copiilor și adolescenților. La noi, scena devine mai mult decât un loc pentru spectacol: devine locul în care prindem curaj să fim noi înșine, transformăm emoțiile în expresie și descoperim, prin joc și creativitate, cât de departe ne poate duce imaginația. Credem că teatrul îi ajută pe copii să vorbească fără teamă și să se conecteze cu cei din jur. Pe scenă, ca în viață, fiecare glas contează. ',
     ctaPrimaryLabel: 'Descoperă clasele',
     ctaPrimaryHref: '#classes',
     ctaSecondaryLabel: 'Programează o vizită',
     ctaSecondaryHref: '#contact',
+    programModules: [
+      { level: 'Începători', module: 'Modulul I', title: 'Dezvoltare personală prin jocuri teatrale' },
+      { level: 'Intermediari', module: 'Modulul II', title: 'Lucru pe scene de teatru și film' },
+      { level: 'Avansați', module: 'Modulul III', title: 'Laborator de spectacol' },
+      { level: 'Avansați', module: 'Modulul IV', title: 'Spectacol de teatru' },
+    ],
+    summerModules: ['Atelier intensiv de Monoloage (iulie)'],
     enrollmentNote: 'Înscrierile sunt deschise · Grupe cu număr limitat de locuri',
     phone: '0785 088 595 / 0763 618 499',
     email: 'activstudio.office@gmail.com',
@@ -28,30 +36,10 @@ export const fallbackContent: SiteContent = {
     copyright: '© 2026 ACT IV DRAMA STUDIO',
   },
   classes: [
-    {
-      _id: 'kids',
-      title: 'Copii',
-      ageRange: '7–10',
-      description:
-        'Introducere ludică în povestit, mișcare și imaginație. Copiii își construiesc încrederea prin jocuri și scene de grup.',
-      schedule: 'Marți și joi · 16:30–17:30',
-    },
-    {
-      _id: 'teens',
-      title: 'Adolescenți',
-      ageRange: '11–15',
-      description:
-        'Studiu de scenă, improvizație și dezvoltarea personajului. Pregătire pentru spectacolele școlare și audiții.',
-      schedule: 'Luni și miercuri · 17:30–19:00',
-    },
-    {
-      _id: 'adults',
-      title: 'Adulți',
-      ageRange: '16+',
-      description:
-        'Tehnici de actorie, monologuri și performanță. Cursuri de seară pentru toate nivelurile de experiență.',
-      schedule: 'Marți și joi · 19:00–20:30',
-    },
+    { _id: 'age-6-7', title: '6 – 7 ani', schedule: 'Sâmbătă · 11:00 – 12:00 (60’)' },
+    { _id: 'age-8-10', title: '8 – 10 ani', schedule: 'Sâmbătă · 12:30 – 13:30 (60’)' },
+    { _id: 'age-11-13', title: '11 – 13 ani', schedule: 'Sâmbătă · 14:00 – 15:15 (75’)' },
+    { _id: 'age-14-17', title: '14 – 17 ani', schedule: 'Sâmbătă · 15:30 – 17:00 (90’)' },
   ],
   features: [
     {
@@ -79,7 +67,7 @@ export const fallbackContent: SiteContent = {
       _id: 'iasmina',
       name: 'Iasmina Crețoi',
       role: 'Actriță & Trainer de teatru',
-      bio: 'Actriță și co-fondatoare a studioului. A călcat pe scenele marilor teatre bucureștene și a descoperit că bucuria cea mai mare e să vezi cum oamenii îndrăznesc. La orele ei nu există greșeli — doar propuneri pe care le joci mai departe. Teatrul, spune ea, nu te învață să fii altcineva, ci să fii mai mult tu însuți.',
+      bio: 'Actriță și co-fondatoare a studioului, absolventă a Universității Naționale de Artă Teatrală și Cinematografică „I.L. Caragiale” din București, secția Actorie, și a masterului de Pedagogie teatrală. De-a lungul carierei sale artistice și pedagogice, a colaborat cu instituții de teatru de prestigiu din București și din țară, printre care Teatrul de Comedie, Teatrul Metropolis, Centrul Cultural Mioveni. A contribuit, în calitate de trainer, la formarea tinerilor pasionați de teatru în cadrul unor festivaluri și proiecte de referință, precum Festivalul Național de Teatru pentru Elevi „George Constantin”, Festivalul Național de Teatru „Ludicus” din Mioveni, Caravana UNATC – „Eveniment și experiment artistic” și UNATC Junior.\n\nA descoperit că bucuria cea mai mare e să vezi cum oamenii se deschid și cum evoluează. La orele ei nu există greșeli, ci doar curajul de a încerca din nou. Teatrul, spune ea, te învață să asculți, să simți și să ai încredere în vocea ta.   ',
       specialties: ['Actorie', 'Voce & dicție', 'Improvizație'],
       photo: '/team/iasmina.png',
     },
@@ -87,7 +75,7 @@ export const fallbackContent: SiteContent = {
       _id: 'victoras',
       name: 'Victoraș Matei',
       role: 'Actor & Trainer de teatru',
-      bio: 'Actor și co-fondator al studioului. Transformă scena în teren de joacă — între improvizație, exerciții și mult umor, elevii lui uită că „învață" și descoperă că pot susține o scenă întreagă. E convins că oricine poate urca pe scenă; trebuie doar să îndrăznească primul pas.',
+      bio: 'Actor și co-fondator al studioului, absolvent al Universității Naționale de Artă Teatrală și Cinematografică „I.L. Caragiale” din București, secția Actorie, și al masterului de Pedagogie teatrală. De-a lungul carierei sale artistice și pedagogice a colaborat cu teatre importante din București și din țară, printre care Teatrul Bulandra, Opera Națională, Teatrul Metropolis și Teatrul Național „Marin Sorescu” din Craiova. A fost trainer la numeroase festivaluri de teatru pentru tineri de prestigiu, unde și-a împărtășit experiența viitorilor actori. \n\nAcum aduce toată această experiență în sala de curs și face din scenă un teren de joacă: între improvizație, exerciții și mult umor, elevii lui uită că „învață” și descoperă că pot umple o scenă cu energia și ideile lor. E convins că oricine poate urca pe scenă, trebuie doar să îndrăznească să facă primul pas. ',
       specialties: ['Improvizație', 'Mișcare scenică', 'Actorie'],
       photo: '/team/victoras.png',
     },

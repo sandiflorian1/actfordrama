@@ -1,18 +1,26 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Sun } from 'lucide-react'
 import { Reveal } from './Reveal'
-import type { ClassGroup } from '@/sanity/queries'
+import type { ClassGroup, ProgramModule } from '@/sanity/queries'
 
-export function ClassesSection({ classes }: { classes: ClassGroup[] }) {
+export function ClassesSection({
+  classes,
+  modules = [],
+  summerModules = [],
+}: {
+  classes: ClassGroup[]
+  modules?: ProgramModule[]
+  summerModules?: string[]
+}) {
   if (!classes.length) return null
 
   return (
     <section id="classes" className="mx-auto max-w-6xl px-4 py-24">
       <Reveal>
-        <div className="flex items-end justify-between">
+        <div id="schedule" className="flex scroll-mt-28 items-end justify-between">
           <h2 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
-            Clase pe grupe de vârstă
+            Program · Clase pe grupe de vârstă
           </h2>
-          <span id="schedule" className="hidden text-xs text-muted-foreground/60 sm:block">
+          <span className="hidden text-xs text-muted-foreground/60 sm:block">
             program săptămânal
           </span>
         </div>
@@ -28,15 +36,19 @@ export function ClassesSection({ classes }: { classes: ClassGroup[] }) {
               <span className="font-hand text-2xl text-primary md:col-span-1">
                 0{i + 1}
               </span>
-              <h3 className="font-serif text-3xl transition-transform duration-300 group-hover:translate-x-2 md:col-span-4">
+              <h3
+                className={`font-serif text-3xl transition-transform duration-300 group-hover:translate-x-2 ${c.description ? 'md:col-span-4' : 'md:col-span-8'}`}
+              >
                 {c.title}
                 {c.ageRange && (
                   <span className="ml-2 text-lg text-muted-foreground">· {c.ageRange} ani</span>
                 )}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground md:col-span-4">
-                {c.description}
-              </p>
+              {c.description && (
+                <p className="text-sm leading-relaxed text-muted-foreground md:col-span-4">
+                  {c.description}
+                </p>
+              )}
               <div className="flex items-center gap-2 text-sm font-medium md:col-span-3 md:justify-end">
                 <span className="md:text-right">{c.schedule}</span>
                 <ArrowUpRight className="size-4 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -45,6 +57,52 @@ export function ClassesSection({ classes }: { classes: ClassGroup[] }) {
           </Reveal>
         ))}
       </div>
+
+      {(modules.length > 0 || summerModules.length > 0) && (
+        <div className="mt-20 grid gap-12 md:grid-cols-12">
+          {modules.length > 0 && (
+            <div className="md:col-span-8">
+              <Reveal>
+                <h3 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+                  Structura
+                </h3>
+              </Reveal>
+              <ol className="mt-8 border-t border-foreground/15">
+                {modules.map((m, i) => (
+                  <Reveal key={i} delay={i * 100}>
+                    <li className="grid gap-1 border-b border-foreground/15 px-2 py-5 sm:grid-cols-12 sm:items-baseline sm:gap-3 md:px-4">
+                      <span className="text-xs font-semibold tracking-[0.2em] text-primary uppercase sm:col-span-5 sm:whitespace-nowrap">
+                        {[m.level, m.module].filter(Boolean).join(' · ')}
+                      </span>
+                      <span className="font-serif text-xl sm:col-span-7">{m.title}</span>
+                    </li>
+                  </Reveal>
+                ))}
+              </ol>
+            </div>
+          )}
+
+          {summerModules.length > 0 && (
+            <div className="md:col-span-4">
+              <Reveal>
+                <h3 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+                  Modul de vară
+                </h3>
+              </Reveal>
+              <div className="mt-8 flex flex-col gap-4">
+                {summerModules.map((s, i) => (
+                  <Reveal key={i} delay={i * 100}>
+                    <div className="flex items-start gap-3 border-l-2 border-primary/40 pl-5">
+                      <Sun className="mt-1 size-5 shrink-0 text-primary" strokeWidth={1.5} />
+                      <p className="font-serif text-xl">{s}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </section>
   )
 }
