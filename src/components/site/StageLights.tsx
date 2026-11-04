@@ -23,53 +23,9 @@ const SPARKLES: { left: string; top: string; size: number; duration: number; del
   { left: '88%', top: '62%', size: 7, duration: 4, delay: -2.8 },
 ]
 
-function SmallSpot({ gradientId, duration, delay }: { gradientId: string; duration: number; delay: number }) {
-  return (
-    <div
-      className="animate-sweep origin-top"
-      style={{ animationDuration: `${duration}s`, animationDelay: `${delay}s` }}
-    >
-      <svg width="90" height="560" viewBox="0 0 90 560" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id={gradientId} x1="0.5" y1="0" x2="0.5" y2="1">
-            <stop offset="0%" stopColor="#e0a070" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#e0a070" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        {/* hanging rod */}
-        <path d="M45 0 L45 14" stroke="#f4ecdd" strokeOpacity="0.45" strokeWidth="2" />
-        {/* cone */}
-        <path d="M38 44 L52 44 L82 560 L8 560 Z" fill={`url(#${gradientId})`} />
-        {/* lamp: barrel + barn doors + lens, lens pointing down */}
-        <g
-          transform="translate(45 30) rotate(90) scale(0.42)"
-          stroke="#f4ecdd"
-          strokeOpacity="0.45"
-          strokeWidth="3"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        >
-          <path d="M3 -27 L34 -56 L44 -44 L8 -22 Z" fill="#241a13" />
-          <path d="M3 27 L34 56 L44 44 L8 22 Z" fill="#241a13" />
-          <path d="M0 -27 L-50 -21 Q-60 -21 -60 -11 L-60 11 Q-60 21 -50 21 L0 27 Z" fill="#241a13" />
-          <path d="M-48 -15 L-48 15 M-42 -16 L-42 16 M-36 -17 L-36 17" strokeOpacity="0.3" />
-          <ellipse cx="0" cy="0" rx="9" ry="28" fill="#241a13" />
-        </g>
-      </svg>
-    </div>
-  )
-}
-
 export function StageLights() {
   return (
     <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-      <div className="absolute top-0 left-[8%] hidden md:block">
-        <SmallSpot gradientId="stage-light-a" duration={11} delay={0} />
-      </div>
-      <div className="absolute top-0 left-[46%] hidden md:block">
-        <SmallSpot gradientId="stage-light-b" duration={14} delay={-7} />
-      </div>
-
       {DUST.map((d, i) => (
         <span
           key={i}
