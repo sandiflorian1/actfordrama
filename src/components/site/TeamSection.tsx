@@ -1,6 +1,7 @@
 import { Drama } from 'lucide-react'
 import type { CSSProperties } from 'react'
 import { Reveal } from './Reveal'
+import { Doodle } from './Doodles'
 import { urlFor } from '@/sanity/image'
 import { cn } from '@/lib/utils'
 import type { TeamMember } from '@/sanity/queries'
@@ -17,18 +18,6 @@ function MemberInfo({ m }: { m: TeamMember }) {
     <div>
       <h3 className="font-serif text-4xl leading-tight">{m.name}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{m.role}</p>
-      {m.specialties && m.specialties.length > 0 && (
-        <div className="mt-6 flex flex-wrap gap-2">
-          {m.specialties.map((s) => (
-            <span
-              key={s}
-              className="rounded-full border border-foreground/25 px-3.5 py-1 text-[11px] transition-colors hover:border-primary hover:text-primary"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
-      )}
     </div>
   )
 }
@@ -84,12 +73,18 @@ export function TeamSection({ members }: { members: TeamMember[] }) {
   if (!members.length) return null
 
   return (
-    <section id="echipa" className="mx-auto max-w-6xl px-4 pb-24">
+    <section id="echipa" className="relative mx-auto max-w-6xl px-4 pb-24">
       <Reveal>
         <div className="flex items-end justify-between">
-          <h2 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
-            Echipa
-          </h2>
+          <div>
+            <h2 className="text-[13px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+              Echipa
+            </h2>
+            <Doodle
+              kind="masks"
+              className="pointer-events-none mt-4 hidden w-12 [animation-delay:0.8s] md:block"
+            />
+          </div>
           <span className="hidden font-serif text-lg italic text-muted-foreground/70 sm:block">
             Cunoaște trainerii
           </span>

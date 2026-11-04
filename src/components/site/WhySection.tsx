@@ -1,5 +1,6 @@
 import { GraduationCap, Heart, Sparkles, Star, Users, Drama, type LucideIcon } from 'lucide-react'
 import { Reveal } from './Reveal'
+import { Doodle } from './Doodles'
 import type { Feature } from '@/sanity/queries'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -15,9 +16,17 @@ export function WhySection({ features }: { features: Feature[] }) {
   if (!features.length) return null
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pb-24">
+    <section className="relative mx-auto max-w-6xl px-4 pb-24">
+      <Doodle
+        kind="star"
+        className="pointer-events-none absolute top-0 right-4 hidden w-9 md:block"
+      />
+      <Doodle
+        kind="spark"
+        className="pointer-events-none absolute -bottom-4 -left-6 hidden w-10 [animation-delay:1.2s] md:block"
+      />
       <Reveal>
-        <h2 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+        <h2 className="text-[13px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
           De ce Act IV
         </h2>
       </Reveal>

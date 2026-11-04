@@ -1,6 +1,22 @@
-import { ArrowUpRight, Star, Sun } from 'lucide-react'
+import { ArrowUpRight, Sparkle, Star, Sun } from 'lucide-react'
 import { Reveal } from './Reveal'
+import { Doodle } from './Doodles'
 import type { ClassGroup, ProgramModule } from '@/sanity/queries'
+import type { SVGProps } from 'react'
+
+function ThreePointStar(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M12 3.75 15.03 13 21.53 20.25 12 18.25 2.47 20.25 8.97 13Z" />
+    </svg>
+  )
+}
 
 export function ClassesSection({
   classes,
@@ -14,12 +30,15 @@ export function ClassesSection({
   if (!classes.length) return null
 
   return (
-    <section id="classes" className="mx-auto max-w-6xl px-4 py-24">
+    <section id="classes" className="relative mx-auto max-w-6xl px-4 py-24">
       <Reveal>
         <div id="schedule" className="flex scroll-mt-28 items-end justify-between">
-          <h2 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
-            Program · Clase pe grupe de vârstă
-          </h2>
+          <div className="flex items-center gap-3">
+            <h2 className="text-[13px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+              Program · Clase pe grupe de vârstă
+            </h2>
+            <Doodle kind="ticket" className="pointer-events-none hidden w-10 md:block" />
+          </div>
           <span className="hidden text-xs text-muted-foreground/60 sm:block">
             program săptămânal
           </span>
@@ -31,11 +50,8 @@ export function ClassesSection({
           <Reveal key={c._id} variant="ticket" delay={i * 140}>
             <a
               href="#contact"
-              className="group grid items-baseline gap-3 border-b border-foreground/15 px-2 py-8 transition-colors duration-300 hover:bg-accent/50 md:grid-cols-12 md:px-4"
+              className="group grid items-baseline gap-3 md:items-center border-b border-foreground/15 px-2 py-8 transition-colors duration-300 hover:bg-accent/50 md:grid-cols-12 md:px-4"
             >
-              <span className="inline-block origin-bottom-left font-hand text-2xl text-primary transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110 md:col-span-1">
-                0{i + 1}
-              </span>
               <h3
                 className={`font-serif text-3xl transition-transform duration-300 group-hover:translate-x-2 ${c.description ? 'md:col-span-4' : 'md:col-span-8'}`}
               >
@@ -49,7 +65,7 @@ export function ClassesSection({
                   {c.description}
                 </p>
               )}
-              <div className="flex items-center gap-2 text-sm font-medium md:col-span-3 md:justify-end">
+              <div className="flex items-center gap-2 text-sm font-medium md:col-span-4 md:justify-end">
                 <span className="md:text-right">{c.schedule}</span>
                 <ArrowUpRight className="size-4 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
@@ -63,7 +79,7 @@ export function ClassesSection({
           {modules.length > 0 && (
             <div className="md:col-span-8">
               <Reveal>
-                <h3 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+                <h3 className="text-[13px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
                   Structura
                 </h3>
               </Reveal>
@@ -78,6 +94,18 @@ export function ClassesSection({
                       <li className="relative grid gap-1 border-b border-foreground/15 py-5 pr-2 pl-10 sm:grid-cols-12 sm:items-baseline sm:gap-3 md:pr-4 md:pl-12">
                         {i === modules.length - 1 ? (
                           <Star
+                            aria-hidden="true"
+                            className="module-dot absolute top-1/2 left-4 size-4 -translate-x-1/2 -translate-y-1/2 fill-primary bg-background text-primary md:left-5"
+                            style={{ transitionDelay: `${300 + i * 300}ms` }}
+                          />
+                        ) : i === 1 ? (
+                          <ThreePointStar
+                            aria-hidden="true"
+                            className="module-dot absolute top-1/2 left-4 size-4 -translate-x-1/2 -translate-y-1/2 fill-primary bg-background text-primary md:left-5"
+                            style={{ transitionDelay: `${300 + i * 300}ms` }}
+                          />
+                        ) : i > 0 ? (
+                          <Sparkle
                             aria-hidden="true"
                             className="module-dot absolute top-1/2 left-4 size-4 -translate-x-1/2 -translate-y-1/2 fill-primary bg-background text-primary md:left-5"
                             style={{ transitionDelay: `${300 + i * 300}ms` }}
@@ -104,7 +132,7 @@ export function ClassesSection({
           {summerModules.length > 0 && (
             <div className="md:col-span-4">
               <Reveal>
-                <h3 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+                <h3 className="text-[13px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
                   Modul de vară
                 </h3>
               </Reveal>

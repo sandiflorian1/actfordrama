@@ -67,16 +67,14 @@ export const fallbackContent: SiteContent = {
       name: 'Iasmina Crețoi',
       role: 'Actriță & Trainer de teatru',
       bio: 'Actriță și co-fondatoare a studioului, absolventă a Universității Naționale de Artă Teatrală și Cinematografică „I.L. Caragiale” din București, secția Actorie, și a masterului de Pedagogie teatrală. De-a lungul carierei sale artistice și pedagogice, a colaborat cu instituții de teatru de prestigiu din București și din țară, printre care Teatrul de Comedie, Teatrul Metropolis, Centrul Cultural Mioveni. A contribuit, în calitate de trainer, la formarea tinerilor pasionați de teatru în cadrul unor festivaluri și proiecte de referință, precum Festivalul Național de Teatru pentru Elevi „George Constantin”, Festivalul Național de Teatru „Ludicus” din Mioveni, Caravana UNATC – „Eveniment și experiment artistic” și UNATC Junior.\n\nA descoperit că bucuria cea mai mare e să vezi cum oamenii se deschid și cum evoluează. La orele ei nu există greșeli, ci doar curajul de a încerca din nou. Teatrul, spune ea, te învață să asculți, să simți și să ai încredere în vocea ta.   ',
-      specialties: ['Actorie', 'Voce & dicție', 'Improvizație'],
-      photo: '/team/iasmina.png',
+      photo: '/team/iasmina.jpg',
     },
     {
       _id: 'victoras',
       name: 'Victoraș Matei',
       role: 'Actor & Trainer de teatru',
       bio: 'Actor și co-fondator al studioului, absolvent al Universității Naționale de Artă Teatrală și Cinematografică „I.L. Caragiale” din București, secția Actorie, și al masterului de Pedagogie teatrală. De-a lungul carierei sale artistice și pedagogice a colaborat cu teatre importante din București și din țară, printre care Teatrul Bulandra, Opera Națională, Teatrul Metropolis și Teatrul Național „Marin Sorescu” din Craiova. A fost trainer la numeroase festivaluri de teatru pentru tineri de prestigiu, unde și-a împărtășit experiența viitorilor actori. \n\nAcum aduce toată această experiență în sala de curs și face din scenă un teren de joacă: între improvizație, exerciții și mult umor, elevii lui uită că „învață” și descoperă că pot umple o scenă cu energia și ideile lor. E convins că oricine poate urca pe scenă, trebuie doar să îndrăznească să facă primul pas. ',
-      specialties: ['Improvizație', 'Mișcare scenică', 'Actorie'],
-      photo: '/team/victoras.png',
+      photo: '/team/victoras.jpg',
     },
   ],
 }

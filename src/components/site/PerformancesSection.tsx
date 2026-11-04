@@ -11,7 +11,7 @@ export function PerformancesSection({ performances }: { performances: Performanc
   return (
     <section id="performances" className="mx-auto max-w-6xl px-4 pb-24">
       <Reveal>
-        <h2 className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+        <h2 className="text-[13px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
           Spectacole
         </h2>
       </Reveal>

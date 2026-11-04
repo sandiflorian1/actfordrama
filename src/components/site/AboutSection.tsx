@@ -1,15 +1,17 @@
 import { Reveal } from './Reveal'
+import { Doodle } from './Doodles'
 import { HeroIllustration } from './HeroIllustration'
 import type { SiteSettings } from '@/sanity/queries'
 
 export function AboutSection({ settings }: { settings: SiteSettings }) {
   return (
-    <section id="about" className="mx-auto max-w-6xl px-4 py-24 md:py-32">
+    <section id="about" className="relative mx-auto max-w-6xl px-4 py-24 md:py-32">
       <div className="grid gap-12 md:grid-cols-12">
-        <Reveal className="md:col-span-3">
-          <p className="text-[11px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
+        <Reveal className="md:col-span-2">
+          <p className="text-[13px] font-semibold tracking-[0.4em] text-muted-foreground uppercase">
             Despre
           </p>
+          <Doodle kind="masks" className="pointer-events-none mt-4 hidden w-12 md:block" />
         </Reveal>
 
         <div className="md:col-span-6">
@@ -23,8 +25,8 @@ export function AboutSection({ settings }: { settings: SiteSettings }) {
           </Reveal>
         </div>
 
-        <Reveal delay={300} className="hidden md:col-span-3 md:block">
-          <HeroIllustration className="w-full max-w-52 opacity-80" />
+        <Reveal delay={300} className="hidden self-center md:col-span-4 md:block">
+          <HeroIllustration className="w-full max-w-sm opacity-80" />
         </Reveal>
       </div>
     </section>

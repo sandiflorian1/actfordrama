@@ -26,24 +26,26 @@ export function SpotBeam({ className }: { className?: string }) {
         strokeLinecap="round"
       />
       <g className="origin-[348px_8px] animate-sway transform-view">
-        <path d="M302 90 L358 102 L400 640 L60 640 Z" fill="url(#beam)" />
-        <g
-          transform="translate(330 95) rotate(102) scale(1.3)"
-          stroke="#f4ecdd"
-          strokeOpacity="0.45"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        >
-          <path d="M-28 -38 L-68 -38 L-68 38 L-28 38" fill="none" strokeWidth="1.6" />
-          <path d="M3 -27 L34 -56 L44 -44 L8 -22 Z" fill="#241a13" />
-          <path d="M3 27 L34 56 L44 44 L8 22 Z" fill="#241a13" />
-          <path d="M0 -27 L-50 -21 Q-60 -21 -60 -11 L-60 11 Q-60 21 -50 21 L0 27 Z" fill="#241a13" />
-          <path d="M-48 -15 L-48 15 M-42 -16 L-42 16 M-36 -17 L-36 17" strokeOpacity="0.3" />
-          <circle cx="-28" cy="-38" r="4" fill="#241a13" />
-          <circle cx="-28" cy="38" r="4" fill="#241a13" />
-          <ellipse cx="0" cy="0" rx="9" ry="28" fill="#241a13" />
-          <ellipse cx="10" cy="0" rx="34" ry="40" fill="url(#lens-glow)" stroke="none" />
+        <g transform="rotate(45 348 8)">
+          <path d="M302 90 L358 102 L425 963 L-85 970 Z" fill="url(#beam)" />
+          <g
+            transform="translate(330 95) rotate(102) scale(1.3)"
+            stroke="#f4ecdd"
+            strokeOpacity="0.45"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          >
+            <path d="M-28 -38 L-68 -38 L-68 38 L-28 38" fill="none" strokeWidth="1.6" />
+            <path d="M3 -27 L34 -56 L44 -44 L8 -22 Z" fill="#241a13" />
+            <path d="M3 27 L34 56 L44 44 L8 22 Z" fill="#241a13" />
+            <path d="M0 -27 L-50 -21 Q-60 -21 -60 -11 L-60 11 Q-60 21 -50 21 L0 27 Z" fill="#241a13" />
+            <path d="M-48 -15 L-48 15 M-42 -16 L-42 16 M-36 -17 L-36 17" strokeOpacity="0.3" />
+            <circle cx="-28" cy="-38" r="4" fill="#241a13" />
+            <circle cx="-28" cy="38" r="4" fill="#241a13" />
+            <ellipse cx="0" cy="0" rx="9" ry="28" fill="#241a13" />
+            <ellipse cx="10" cy="0" rx="34" ry="40" fill="url(#lens-glow)" stroke="none" />
+          </g>
         </g>
       </g>
     </svg>

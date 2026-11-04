@@ -39,6 +39,10 @@
   --animate-scroll-hint: scroll-hint 2s ease-in-out infinite;
   --animate-slide-in-right: slide-in-right 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-slide-in-left: slide-in-left 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-sweep: sweep 11s ease-in-out infinite;
+  --animate-drift: drift 9s ease-in-out infinite;
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
 
   @keyframes slide-in-right {
     from {
@@ -81,6 +85,51 @@
     }
     to {
       transform: translateY(0);
+    }
+  }
+  @keyframes sweep {
+    0%,
+    100% {
+      transform: rotate(-14deg);
+    }
+    50% {
+      transform: rotate(14deg);
+    }
+  }
+  @keyframes drift {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      transform: scale(0.6);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-4deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(4deg);
     }
   }
   @keyframes scroll-hint {
@@ -220,5 +269,11 @@
   .module-dot {
     scale: 1;
     transition: none;
+  }
+  .animate-sweep,
+  .animate-drift,
+  .animate-twinkle,
+  .animate-float {
+    animation: none;
   }
 }

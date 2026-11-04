@@ -2,6 +2,7 @@ import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Reveal } from './Reveal'
 import { SpotBeam } from './SpotBeam'
+import { StageLights } from './StageLights'
 import type { SiteSettings } from '@/sanity/queries'
 
 export function Hero({ settings }: { settings: SiteSettings }) {
@@ -11,8 +12,9 @@ export function Hero({ settings }: { settings: SiteSettings }) {
     <section className="relative flex min-h-screen items-center overflow-hidden bg-[#17110c] text-[#f4ecdd]">
       {/* animated spotlight beam */}
       <div className="pointer-events-none absolute top-24 right-0 bottom-0 w-1/2 md:w-[38%]">
-        <SpotBeam className="h-full w-full md:overflow-visible" />
+        <SpotBeam className="h-full w-full overflow-visible" />
       </div>
+      <StageLights />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-[#17110c] to-transparent" />
 
       <div className="relative mx-auto w-full max-w-7xl px-4 pt-28 pb-20 md:px-8">
